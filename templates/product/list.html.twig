@@ -1,0 +1,73 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Produit index{% endblock %}
+  {% block javascripts %}
+<script>
+$(document).ready(function() {
+$('#datatablesSimple').DataTable( {
+"language": {
+    search: "Search in table:"
+}
+
+} );
+} );
+</script>
+{% endblock %}
+{% block body %}
+<main>
+    <div class="container-fluid px-4">
+        <h1 class="mt-4">Produits</h1>
+        <ol class="breadcrumb mb-4">
+            <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
+            <li class="breadcrumb-item active">Tables</li>
+        </ol>
+        <div class="card mb-4">
+            
+        </div>
+        <div class="card mb-4">
+            <div class="card-header">
+                <i class="fas fa-table me-1"></i>
+                Produits Table
+            </div>
+            <div class="card-body">
+                <table id="datatablesSimple">
+                    <thead>
+                   <tr>
+                <th>Id</th>
+                <th>Code</th>
+                <th>Qtt</th>
+                <th>Prix</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for product in products %}
+            <tr>
+                <td>{{ product.id }}</td>
+                <td>{{ product.code }}</td>
+                <td>{{ product.qtt }}</td>
+                <td>{{ product.prix }}</td>
+                <td>
+                    <a href="{{ path('product-vendu', {'id': product.id}) }}">Vendu</a>
+                    
+                </td>
+                    </tr>
+                    {% else %}
+                        <tr>
+                            <td colspan="7">no records found</td>
+                        </tr>
+                    {% endfor %}
+
+                    </tbody>
+                </table>
+
+
+
+
+</div>
+        </div>
+
+    </div>
+</main>
+                    {% endblock %}
+

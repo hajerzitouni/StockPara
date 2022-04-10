@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %} <!-- extending ensures you loaded dropzone's assets -->
+{% block body %}
+     <h1 class="col-sm-offset-3">File Upload in Symfony using Dropzone</h1><hr>
+     {#{{ form_start(form) }}#}
+     {#{{ form_widget(form) }}#}
+     <div class="form-group">
+         <label class="col-sm-2 control-label required" for="">Default Image</label>
+         <div class="col-sm-10">
+             <div class="dropzone"></div>
+         </div>
+     </div>
+     <div class="col-xs-4 pull-right">
+         <input type="submit" class="btn btn-block btn-primary" value="Add" />
+     </div>
+     {#{{ form_end(form) }}#}
+{% endblock body %}
+{% block javascripts %}
+    {{ parent() }}
+<script>
+        // init,configure dropzone
+        Dropzone.autoDiscover = false;
+        var dropzone_default = new Dropzone(".dropzone", {
+            url: '{{ path('fileuploadhandler') }}' ,
+            maxFiles: 1,
+            dictMaxFilesExceeded: 'Only 1 Image can be uploaded',
+            acceptedFiles: 'image/*',
+            maxFilesize: 3,  // in Mb
+            addRemoveLinks: true,
+            init: function () {
+                this.on("maxfilesexceeded", function(file) {
+                    this.removeFile(file);
+                });
+                this.on("sending", function(file, xhr, formData) {
+                    // send additional data with the file as POST data if needed.
+                    // formData.append("key", "value");  
+                });
+                this.on("success", function(file, response) {
+                    if (response.uploaded) 
+                        alert('File Uploaded: ' + response.fileName);
+                });
+            }
+        });
+    </script>
+{% endblock javascripts %}
