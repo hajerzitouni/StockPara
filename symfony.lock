@@ -95,6 +95,9 @@
     "markbaker/matrix": {
         "version": "3.0.0"
     },
+    "monolog/monolog": {
+        "version": "2.5.0"
+    },
     "myclabs/php-enum": {
         "version": "1.8.3"
     },
@@ -154,6 +157,15 @@
     },
     "shuchkin/simplexlsx": {
         "version": "1.0.16"
+    },
+    "symfony/apache-pack": {
+        "version": "1.0",
+        "recipe": {
+            "repo": "github.com/symfony/recipes-contrib",
+            "branch": "master",
+            "version": "1.0",
+            "ref": "9d254a22efca7264203eea98b866f16f944b2f09"
+        }
     },
     "symfony/asset": {
         "version": "v5.4.7"
@@ -254,6 +266,21 @@
             "version": "1.0",
             "ref": "fadbfe33303a76e25cb63401050439aa9b1a9c7f"
         }
+    },
+    "symfony/monolog-bridge": {
+        "version": "v5.4.3"
+    },
+    "symfony/monolog-bundle": {
+        "version": "3.7",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "master",
+            "version": "3.7",
+            "ref": "213676c4ec929f046dfde5ea8e97625b81bc0578"
+        },
+        "files": [
+            "./config/packages/monolog.yaml"
+        ]
     },
     "symfony/options-resolver": {
         "version": "v5.4.3"
