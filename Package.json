@@ -13,3 +13,4 @@
     "build": "webpack -p --config ./webpack.config.js --display-error-details",
     "heroku-postbuild": "webpack -p --config ./webpack.config.js && php bin/console d:s:u --force"
 }
+}
