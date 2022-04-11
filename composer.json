@@ -33,10 +33,6 @@
     "require-dev": {
         "symfony/maker-bundle": "^1.38"
     },
-    "engines": {
-        "node": "v13.11.*",
-        "npm": "6.14.*"
-    },
     "config": {
         "allow-plugins": {
             "composer/package-versions-deprecated": true,
@@ -65,11 +61,6 @@
         "symfony/polyfill-php72": "*"
     },
     "scripts": {
-        "dev-server": "encore dev-server",
-    "dev": "encore dev",
-    "watch": "webpack -d --watch --config ./webpack.config.js --display-error-details",
-    "build": "webpack -p --config ./webpack.config.js --display-error-details",
-    "heroku-postbuild": "webpack -p --config ./webpack.config.js && php bin/console d:s:u --force",
         "auto-scripts": {
             "cache:clear": "symfony-cmd",
             "assets:install %PUBLIC_DIR%": "symfony-cmd"
