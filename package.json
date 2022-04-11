@@ -1,0 +1,16 @@
+{
+"name": "your-project-name",
+"description": "a really cool app",
+"version": "1.0.0",
+"engines": {
+    "node": "v14.15.1*",
+    "npm": "6.14.8*"
+},
+"scripts": {
+    "dev-server": "encore dev-server",
+    "dev": "encore dev",
+    "watch": "webpack -d --watch --config ./webpack.config.js --display-error-details",
+    "build": "webpack -p --config ./webpack.config.js --display-error-details",
+    "heroku-postbuild": "webpack -p --config ./webpack.config.js && php bin/console d:s:u --force"
+}
+}
